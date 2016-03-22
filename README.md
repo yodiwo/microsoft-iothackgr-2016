@@ -26,11 +26,11 @@ Make a note of the AzureIOTHub HostName and iot hub connection string.
 For more information, have a look at: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md (Section Create Devices).  Click “SAS Token...” to generate a device specific connection string with SAS token and Get device connection string. Make a note of the device id and device connection string.
 
 3.	Use a Raspberry PI 2, running Windows IOT Core. Connect the Grove extension board on the Raspberry device and attach the Grove sensors to the following slots:
-Rotary Angle Sensor: A2
-Button: D3
-Light: D4
-Led: D5
-LCD: any I2C slot
+        - Rotary Angle Sensor: A2
+	- Button: D3
+	- Light: D4
+	- Led: D5
+	- LCD: any I2C slot
 
 4.	From Visual Studio, open the Yodiwo.MicrosoftHackathon.sln and go to the Project App1. Open MainPage.xaml.cs. Change RaspName (Line36) and Connection String (Line 44) with the device id and the device connection string respectively, acquired previously in substep 2.
 	
@@ -62,6 +62,33 @@ Actually the Yodiwo.PaaS.AzureProxyNode serves as an intermediate node between t
 
 <a name="Step-3"></a>
 # Step 3: Set up a Raspberry PI 2 device equipped with SkyWriter Hat,to the Yodiwo Cloud
+
+1. Setup another Raspberry device running Raspbian. Install mono framework using the following instructions:
+http://www.mono-project.com/docs/getting-started/install/linux/.
+Please use the mono version 4.0.5.1. Replace the following line:
+```
+echo "deb http://download.mono-project.com/repo/debian wheezy main" | sudo tee /etc/apt/sources.list.d/mono-xamarin.list
+```
+with this:
+```
+echo "deb http://download.mono-project.com/repo/debian wheezy/snapshots/4.0.5.1 main"| sudo tee /etc/apt/sources.list.d/mono-xamarin.list
+```
+
+2. Install python-smbus and python-skywriter library:
+```
+sudo apt-get install python-smbus 
+```
+```
+sudo apt-get install python-pip 
+```
+```
+sudo pip install skywriter 
+```
+
+3. Place the SkyWriter Hat on Raspberry PI 2
+
+4. Build the Yodiwo.Projects.SkyWriter Node and copy the Release Directory to the Raspberry home folder. Run the executable using “mono Yodiwo.Projects.SkyWriter.exe”. In the log files you will see that a local server is running on port 4050. This is configurable via the conf.json file. Make a note of Raspberry Pi’s IP and in your pc browser enter the url: http://<RapsberryIP>:4050/pairing. Follow the steps and when you are prompt to complete the UUID, enter the phrase 1337SkyWriter, which is also defined in the conf.json file.
+
 
 <a name="Step-4"></a>
 # Step 4: Set up a Windows Phone to the Yodiwo Cloud Platform
