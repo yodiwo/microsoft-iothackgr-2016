@@ -71,24 +71,24 @@ Actually the Yodiwo.PaaS.AzureProxyNode serves as an intermediate node between t
 1. Setup another Raspberry device running Raspbian. Install mono framework using the following instructions:
 http://www.mono-project.com/docs/getting-started/install/linux/.
 Please use the mono version 4.0.5.1. Replace the following line:
-```
-echo "deb http://download.mono-project.com/repo/debian wheezy main" | sudo tee /etc/apt/sources.list.d/mono-xamarin.list
-```
+  ```
+  echo "deb http://download.mono-project.com/repo/debian wheezy main" | sudo tee /etc/apt/sources.list.d/mono-xamarin.list
+  ```
 with this:
-```
-echo "deb http://download.mono-project.com/repo/debian wheezy/snapshots/4.0.5.1 main"| sudo tee /etc/apt/sources.list.d/mono-xamarin.list
-```
+  ```
+  echo "deb http://download.mono-project.com/repo/debian wheezy/snapshots/4.0.5.1 main"| sudo tee    /etc/apt/sources.list.d/mono-xamarin.list
+  ```
 
 2. Install python-smbus and python-skywriter library:
-```
+  ```
 sudo apt-get install python-smbus 
-```
-```
+  ```
+  ```
 sudo apt-get install python-pip 
-```
-```
+  ```
+  ```
 sudo pip install skywriter 
-```
+  ```
 
 3. Place the SkyWriter Hat on Raspberry PI 2
 
