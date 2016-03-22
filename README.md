@@ -97,7 +97,7 @@ After successful pairing, you will be able to see the SkyWriter node in https://
 # Step 4: Set up a Windows Phone to the Yodiwo Cloud Platform
 1. Use a Windows Phone, running Windows 10 and deploy the project SampleNode2.csproj.
 
-2. When you are prompted to complete the UUID, type “1”. This is defined in Config.cs
+2. Once the application has started, follow the pairing procedure as Described in Step 3. UUID is not required
 
 3. After these steps, you will be able to see Universal Node in your Dashboard.
 
