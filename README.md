@@ -87,7 +87,7 @@ sudo pip install skywriter
 
 3. Place the SkyWriter Hat on Raspberry PI 2
 
-4. Build the Yodiwo.Projects.SkyWriter Node and copy the Release Directory to the Raspberry home folder. Run the executable using “mono Yodiwo.Projects.SkyWriter.exe”. In the log files you will see that a local server is running on port 4050. This is configurable via the conf.json file. Make a note of Raspberry Pi’s IP and in your pc browser enter the url: http://<RapsberryIP>:4050/pairing. Follow the steps and when you are prompt to complete the UUID, enter the phrase 1337SkyWriter, which is also defined in the conf.json file.
+4. Build the Yodiwo.Projects.SkyWriter Node and copy the Release Directory to the Raspberry home folder. Run the executable using “mono Yodiwo.Projects.SkyWriter.exe”. In the log files you will see that a local server is running on port 4050. This is configurable via the conf.json file. Make a note of Raspberry Pi’s IP and in your pc's browser enter the url: http://{RapsberryIP}:4050/pairing. Follow the steps and when you are prompt to complete the UUID, enter the phrase 1337SkyWriter, which is also defined in the conf.json file.
 
 
 <a name="Step-4"></a>
