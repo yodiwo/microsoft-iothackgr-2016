@@ -117,5 +117,24 @@ Then you will be able to create scenarios using the things that you just created
 
 Here we are going to present some demo scenarios, so as to show the intercommunication between Azure IOT Hub and the Yodiwo Cloud. In addition, it is worth mentioning that the devices that are used in this demo run different OSs, indicating the flexibility of communicating between heterogeneous devices. Finally, it is of important to note that devices compliant with the API of other cloud providers, such as Nest Home, Internet of Things Foundation (IBM), Amazon-Web-Service IOT can also be integrated into the Yodiwo Cloud Platform, so as to allow bridging and intercommunication between devices subscribed to different cloud platforms. This is exactly what we call Cloud2Cloud Integration
 
+The demo cases presented in the Microsoft Hackathon are described in detail. In order to run the following demos, the graphs presented in the following Figures have to be designed in Yodiwo’s Designer tab (https://tcyan.yodiwo.com/Designer). After a graph has been created and saved, it should be deployed (the big play button); then case scenarios are ready for use.
+
+Demo 1.
+---
+ Description: Varying the Rotary Angle Sensor, the brightness of the Led changes and the sensor’s value is displayed in the LCD.
+
+Demo 2.
+---
+Description: Tap the SkyWriter Hat, which is attached in the Raspberry PI 2. The position is displayed in the LCD, and if the position is north the light turns on. The text matcher is configured, using the word north in the Comparison Text array. In addition, the level scaler block is configured, using as Output min the 0 value and as Output max the value of 255.
+
+Demo 3.
+---
+Description: Make a free fall on the windows phone. Windows phone recognizes the fall detection (true/false).
+If it is true the phrase “Fall Detected”, set in the constant string block, triggers the Text2Speech block in the Windows Phone. Thus the above voice message can be heard by the Windows Phone. In addition, if a fall is detected the light of the Grove platform is turned on for 3 seconds. The pulse block is configured using as pulse duration 3sec (00:00:03) and the level scaler block is configured, using as Output min range the 0 value and as Output max range the value of 255.
+We envision this functionality embedded in a wearable device, while on the other side it can generate alerts, by being connected to an email block or real-time communication platform blocks. Such blocks are already available in Yodiwo’s cloud
+
+
 <a name="tips"></a>
 # Tips
+
+The Dlls used in each project, have been built using the following projects https://github.com/yodiwo
