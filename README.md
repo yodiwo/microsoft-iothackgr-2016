@@ -11,6 +11,7 @@ Cloud2Cloud Intercommunication- Microsoft Azure IOT Hub with Yodiwo Cloud Platfo
 -   [Step 2: Interconnect Microsoft Azure IOT hub with Yodiwo Cloud Platform](#Step-2)
 -   [Step 3: Set up a Raspberry PI 2 device equipped with SkyWriter Hat,to the Yodiwo Cloud](#Step-3)
 -   [Step 4: Set up a Windows Phone to the Yodiwo Cloud Platform](#Step-4)
+-   [Step 5: Step 5: Check the devices in your Dashboard](#Step-5)
 -   [Demos: Create use case scenarios to the Yodiwo Cloud Platform](#Demos)
 -   [Tips](#tips)
 
@@ -89,9 +90,26 @@ sudo pip install skywriter
 
 4. Build the Yodiwo.Projects.SkyWriter Node and copy the Release Directory to the Raspberry home folder. Run the executable using “mono Yodiwo.Projects.SkyWriter.exe”. In the log files you will see that a local server is running on port 4050. This is configurable via the conf.json file. Make a note of Raspberry Pi’s IP and in your pc's browser enter the url: http://{RapsberryIP}:4050/pairing. Follow the steps and when you are prompt to complete the UUID, enter the phrase 1337SkyWriter, which is also defined in the conf.json file.
 
+After successful pairing, you will be able to see the SkyWriter node in https://tcyan.yodiwo.com
+
 
 <a name="Step-4"></a>
 # Step 4: Set up a Windows Phone to the Yodiwo Cloud Platform
+1. Use a Windows Phone, running Windows 10 and deploy the project SampleNode2.csproj.
+
+2. When you are prompted to complete the UUID, type “1”. This is defined in Config.cs
+
+3. After these steps, you will be able to see Universal Node in your Dashboard.
+
+<a name="Step-5"></a>
+# Step 5: Check the devices in your Dashboard
+After executing the aforementioned steps (1-4), you will be able to see 3 nodes in your Dashboard:
+- Raspberry IOT Node
+- SkyWriter Node
+- Universal Node.
+Each node has its things. You can see the nodes with their things in https://tcyan.yodiwo.com/ThingsManager
+
+Then you will be able to create scenarios using the things that you just created and the logic blocks that are available in the Designer (https://tcyan.yodiwo.com/Designer):
 
 <a name="Demos"></a>
 # Demos: Create use case scenarios to the Yodiwo Cloud Platform
