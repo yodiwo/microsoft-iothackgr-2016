@@ -44,20 +44,18 @@ For more information, have a look at: https://github.com/Azure/azure-iot-sdks/bl
 <a name="Step-2"></a>
 # Step 2: Interconnect Microsoft Azure IOT hub with Yodiwo Cloud Platform
 
-1.Login to the Yodiwo Cloud Platform https://tcyan.yodiwo.com using any of the available OAuth2 methods
+1. Login to the Yodiwo Cloud Platform https://tcyan.yodiwo.com using any of the available OAuth2 methods
 
 2. After Login you will only see the wssample node in your Dashboard
 
-![alt text](https://raw.githubusercontent.com/yodiwo/microsoft-iothackgr-2016/master/Docs/Images/dashboard.png "Dashboard")
-
-
+  ![](https://raw.githubusercontent.com/yodiwo/microsoft-iothackgr-2016/master/Docs/Images/dashboard.png "Dashboard")
 
 3. Go to Visual studio and in Yodiwo.MicrosoftHackathon.sln, find the project Yodiwo.PaaS.AzureProxyNode. Open the config.xml. Replace the AzureDeviceName with the device id from the Device Explorer (Step 1.2) and the AzureIOTApplicationConnectionString with the the iot hub connection string (Step 1.1). 
 
 4. Use the Yodiwo.Tools.NodeCreator.exe application to generate a node key and a node secret for the Yodiwo cloud and put them in the YodiwoNodeKey and YodiwoNodeSecret entities in config.xml. The things Description section describes the Grove Sensors that are attached in Raspberry PI 2. 
 
-![alt text](https://raw.githubusercontent.com/yodiwo/microsoft-iothackgr-2016/master/Docs/Images/nodecreator.png "Node Creator")
-
+![](https://raw.githubusercontent.com/yodiwo/microsoft-iothackgr-2016/master/Docs/Images/nodecreator.png "Node Creator")
+ 
 5. Build this project and run it locally to your own Windows PC.
 
 If everything is correct then refresh the  https://tcyan.yodiwo.com page and you should see a second node RaspberyIOT node and the status is online.
