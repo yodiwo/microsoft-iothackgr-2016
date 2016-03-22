@@ -48,9 +48,15 @@ For more information, have a look at: https://github.com/Azure/azure-iot-sdks/bl
 
 2. After Login you will only see the wssample node in your Dashboard
 
+![alt text](https://raw.githubusercontent.com/yodiwo/microsoft-iothackgr-2016/master/Docs/Images/dashboard.png "Dashboard")
+
+
+
 3. Go to Visual studio and in Yodiwo.MicrosoftHackathon.sln, find the project Yodiwo.PaaS.AzureProxyNode. Open the config.xml. Replace the AzureDeviceName with the device id from the Device Explorer (Step 1.2) and the AzureIOTApplicationConnectionString with the the iot hub connection string (Step 1.1). 
 
-4. Use the Yodiwo.Tools.NodeCreator.exe application to generate a node key and a node secret for the Yodiwo cloud and put them in the YodiwoNodeKey and YodiwoNodeSecret entities in config.xml. The things Description section describes the Grove Sensors that are attached in Raspberry PI 2.  
+4. Use the Yodiwo.Tools.NodeCreator.exe application to generate a node key and a node secret for the Yodiwo cloud and put them in the YodiwoNodeKey and YodiwoNodeSecret entities in config.xml. The things Description section describes the Grove Sensors that are attached in Raspberry PI 2. 
+
+![alt text](https://raw.githubusercontent.com/yodiwo/microsoft-iothackgr-2016/master/Docs/Images/nodecreator.png "Node Creator")
 
 5. Build this project and run it locally to your own Windows PC.
 
@@ -90,6 +96,10 @@ sudo pip install skywriter
 
 4. Build the Yodiwo.Projects.SkyWriter Node and copy the Release Directory to the Raspberry home folder. Run the executable using “mono Yodiwo.Projects.SkyWriter.exe”. In the log files you will see that a local server is running on port 4050. This is configurable via the conf.json file. Make a note of Raspberry Pi’s IP and in your pc's browser enter the url: http://{RapsberryIP}:4050/pairing. Follow the steps and when you are prompt to complete the UUID, enter the phrase 1337SkyWriter, which is also defined in the conf_file.json.
 
+![alt text](https://raw.githubusercontent.com/yodiwo/microsoft-iothackgr-2016/master/Docs/Images/pairing.png "Pairing")
+
+![alt text](https://raw.githubusercontent.com/yodiwo/microsoft-iothackgr-2016/master/Docs/Images/uuid.png "UUID")
+
 After successful pairing, you will be able to see the SkyWriter node in https://tcyan.yodiwo.com
 
 
@@ -110,6 +120,7 @@ After executing the aforementioned steps (1-4), you will be able to see 3 nodes 
 Each node has its things. You can see the nodes with their things in https://tcyan.yodiwo.com/ThingsManager
 
 Then you will be able to create scenarios using the things that you just created and the logic blocks that are available in the Designer (https://tcyan.yodiwo.com/Designer)
+![alt text](https://raw.githubusercontent.com/yodiwo/microsoft-iothackgr-2016/master/Docs/Images/designer.png "Designer")
 
 
 <a name="Demos"></a>
@@ -122,16 +133,24 @@ The demo cases presented in the Microsoft Hackathon are described in detail. In 
 Demo 1.
 ---
  Description: Varying the Rotary Angle Sensor, the brightness of the Led changes and the sensor’s value is displayed in the LCD.
+ 
+ ![alt text](https://raw.githubusercontent.com/yodiwo/microsoft-iothackgr-2016/master/Docs/Images/demo1.png "Demo1")
 
 Demo 2.
 ---
 Description: Tap the SkyWriter Hat, which is attached in the Raspberry PI 2. The position is displayed in the LCD, and if the position is north the light turns on. The text matcher is configured, using the word north in the Comparison Text array. In addition, the level scaler block is configured, using as Output min the 0 value and as Output max the value of 255.
+
+ ![alt text](https://raw.githubusercontent.com/yodiwo/microsoft-iothackgr-2016/master/Docs/Images/demo2.png "Demo2")
+
 
 Demo 3.
 ---
 Description: Make a free fall on the windows phone. Windows phone recognizes the fall detection (true/false).
 If it is true the phrase “Fall Detected”, set in the constant string block, triggers the Text2Speech block in the Windows Phone. Thus the above voice message can be heard by the Windows Phone. In addition, if a fall is detected the light of the Grove platform is turned on for 3 seconds. The pulse block is configured using as pulse duration 3sec (00:00:03) and the level scaler block is configured, using as Output min range the 0 value and as Output max range the value of 255.
 We envision this functionality embedded in a wearable device, while on the other side it can generate alerts, by being connected to an email block or real-time communication platform blocks. Such blocks are already available in Yodiwo’s cloud
+
+ ![alt text](https://raw.githubusercontent.com/yodiwo/microsoft-iothackgr-2016/master/Docs/Images/demo3.png "Demo3")
+
 
 
 <a name="tips"></a>
