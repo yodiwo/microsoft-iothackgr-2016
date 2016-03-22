@@ -1,0 +1,39 @@
+﻿<Page
+    x:Class="SampleNode.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SampleNode"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Loaded="Page_Loaded"
+    >
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <StackPanel>
+                <CheckBox x:Name="chk_CheckBox1" Checked="chk_CheckBox1_Changed" Unchecked="chk_CheckBox1_Changed"/>
+                <TextBlock x:Name="txtbox1" />
+                <Slider x:Name="slider1" Minimum="0" Maximum="1" StepFrequency="0.1" ValueChanged="slider1_Changed" />
+                <Border Background="Black" x:Name="light1" Width="128" Height="128"/>
+            </StackPanel>
+            <Border x:Name="brdDisabler" Background="#FAAA" IsHitTestVisible="True"/>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <TextBlock x:Name="txtStatus"/>
+        </Grid>
+    </Grid>
+
+
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton Icon="DisconnectDrive" Label="Unpair" Click="Unpair_Clicked"></AppBarButton>
+        </CommandBar>
+    </Page.BottomAppBar>
+</Page>
