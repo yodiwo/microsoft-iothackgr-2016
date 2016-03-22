@@ -11,7 +11,7 @@ Cloud2Cloud Intercommunication- Microsoft Azure IOT Hub with Yodiwo Cloud Platfo
 -   [Step 2: Interconnect Microsoft Azure IOT hub with Yodiwo Cloud Platform](#Step-2)
 -   [Step 3: Set up a Raspberry PI 2 device equipped with SkyWriter Hat,to the Yodiwo Cloud](#Step-3)
 -   [Step 4: Set up a Windows Phone to the Yodiwo Cloud Platform](#Step-4)
--   [Step 5: Step 5: Check the devices in your Dashboard](#Step-5)
+-   [Step 5: Check the devices in your Dashboard](#Step-5)
 -   [Demos: Create use case scenarios to the Yodiwo Cloud Platform](#Demos)
 -   [Tips](#tips)
 
@@ -109,10 +109,13 @@ After executing the aforementioned steps (1-4), you will be able to see 3 nodes 
 - Universal Node.
 Each node has its things. You can see the nodes with their things in https://tcyan.yodiwo.com/ThingsManager
 
-Then you will be able to create scenarios using the things that you just created and the logic blocks that are available in the Designer (https://tcyan.yodiwo.com/Designer):
+Then you will be able to create scenarios using the things that you just created and the logic blocks that are available in the Designer (https://tcyan.yodiwo.com/Designer)
+
 
 <a name="Demos"></a>
 # Demos: Create use case scenarios to the Yodiwo Cloud Platform
+
+Here we are going to present some demo scenarios, so as to show the intercommunication between Azure IOT Hub and the Yodiwo Cloud. In addition, it is worth mentioning that the devices that are used in this demo run different OSs, indicating the flexibility of communicating between heterogeneous devices. Finally, it is of important to note that devices compliant with the API of other cloud providers, such as Nest Home, Internet of Things Foundation (IBM), Amazon-Web-Service IOT can also be integrated into the Yodiwo Cloud Platform, so as to allow bridging and intercommunication between devices subscribed to different cloud platforms. This is exactly what we call Cloud2Cloud Integration
 
 <a name="tips"></a>
 # Tips
