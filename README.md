@@ -154,4 +154,5 @@ We envision this functionality embedded in a wearable device, while on the other
 <a name="tips"></a>
 # Tips
 
-The Dlls used in each project, have been built using the following projects https://github.com/yodiwo
+- The DLLs used in each project have been built using projects from https://github.com/yodiwo
+- In https://github.com/yodiwo/plegma you will find further examples of how to interface to the Yodiwo cloud platform using the Plegma open API, in a multitude of languages and dev. platforms
