@@ -13,6 +13,7 @@
 
 *.userprefs
 
+project.lock.json
 
 *.sln.docstates
 
