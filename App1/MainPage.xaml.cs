@@ -16,6 +16,8 @@ using Microsoft.Azure.Devices.Client;
 using System.Threading.Tasks;
 using System.Text;
 using Newtonsoft.Json;
+using Windows.Media.SpeechRecognition;
+using Windows.Media.SpeechSynthesis;
 
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -37,6 +39,9 @@ namespace App1
         //use the device id acquired from the Device Explorer
         public static string RaspName = "RaspberryIOT";
         //------------------------------------------------------------------------------------------------------------------------
+        // The speech recognizer used throughout this sample.
+        private SpeechRecognizer speechRecognizer;
+        //------------------------------------------------------------------------------------------------------------------------
         public MainPage()
         {
             this.InitializeComponent();
@@ -57,8 +62,32 @@ namespace App1
             //lightwatcher.Watch();
             led = new Led(GrovePi.Pin.DigitalPin5);
             lcd = new LCD();
+
+            //start speech recognition
+            try
+            {
+                speechRecognizer = new SpeechRecognizer(SpeechRecognizer.SystemSpeechLanguage);
+                speechRecognizer.StateChanged += SpeechRecognizer_StateChanged;
+
+                // Apply the dictation topic constraint to optimize for dictated freeform speech.
+                var dictationConstraint = new SpeechRecognitionTopicConstraint(SpeechRecognitionScenario.Dictation, "dictation");
+                speechRecognizer.Constraints.Add(dictationConstraint);
+                var result = await speechRecognizer.CompileConstraintsAsync();
+                if (result.Status == SpeechRecognitionResultStatus.Success)
+                {
+                    //start recogniser
+                    try { recognHeartBeat(); } catch { }
+                }
+            }
+            catch { }
+
             //receive events from the Azure IOT hub
             ReceiveDataFromAzure();
+        }
+        //------------------------------------------------------------------------------------------------------------------------
+        private void SpeechRecognizer_StateChanged(SpeechRecognizer sender, SpeechRecognizerStateChangedEventArgs args)
+        {
+            //SetStatus("SpeechReg : " + args.State.ToStringInvariant());
         }
         //------------------------------------------------------------------------------------------------------------------------
         private async void OnSensedValue(AzureIOTPayoad payload)
@@ -92,6 +121,48 @@ namespace App1
                         lcd.Display(payload.LCD, new int[] { 255, 255, 0 });
                 }
             }
+        }
+        //------------------------------------------------------------------------------------------------------------------------
+        async void recognHeartBeat()
+        {
+            while (true)
+            {
+                try
+                {
+                    var res = await speechRecognizer.RecognizeAsync();
+                    //TODO: send to azure -> res.Text;
+                }
+                catch (Exception ex)
+                {
+                    if (ex.Message.Contains("HRESULT: 0x80045509"))
+                        return;
+
+                    //penalty
+                    await Task.Delay(200);
+                }
+            }
+        }
+        //------------------------------------------------------------------------------------------------------------------------
+        public static async void SpeakText(string TTS)
+        {
+            try
+            {
+                var ttssynthesizer = new SpeechSynthesizer();
+
+                //Set the Voice/Speaker
+                using (var Speaker = new SpeechSynthesizer())
+                {
+                    Speaker.Voice = (SpeechSynthesizer.AllVoices.First(x => x.Gender == VoiceGender.Female));
+                    ttssynthesizer.Voice = Speaker.Voice;
+                }
+
+                var ttsStream = await ttssynthesizer.SynthesizeTextToStreamAsync(TTS);
+
+                //play the speech
+                MediaElement media = new MediaElement();
+                media.SetSource(ttsStream, " ");
+            }
+            catch (Exception ex) { }
         }
         //------------------------------------------------------------------------------------------------------------------------
     }
