@@ -1,4 +1,6 @@
-﻿using System;
+﻿#define GROVE_ENABLED
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -51,6 +53,8 @@ namespace App1
         {
             //use the connection string aquired from the Device Explorer
             deviceClient = DeviceClient.CreateFromConnectionString("HostName=demoyodiwohub......", TransportType.Http1);
+
+#if GROVE_ENABLED
             rotarywatcher = new RotaryWatcher(GrovePi.Pin.AnalogPin2);
             rotarywatcher.OnNewValueAcquiredCb = OnSensedValue;
             rotarywatcher.Watch();
@@ -62,6 +66,7 @@ namespace App1
             //lightwatcher.Watch();
             led = new Led(GrovePi.Pin.DigitalPin5);
             lcd = new LCD();
+#endif
 
             //start speech recognition
             try
@@ -116,9 +121,9 @@ namespace App1
                     await deviceClient.CompleteAsync(receivedMessage);
                     var payload = JsonConvert.DeserializeObject<AzureIOTPayoad>(messageData);
                     if (payload.ThingName == "Led")
-                        led.SetBrightness(payload.Led);
+                        led?.SetBrightness(payload.Led);
                     else if (payload.ThingName == "LCD")
-                        lcd.Display(payload.LCD, new int[] { 255, 255, 0 });
+                        lcd?.Display(payload.LCD, new int[] { 255, 255, 0 });
                 }
             }
         }
